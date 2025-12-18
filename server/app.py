@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
 from flask_socketio import SocketIO, join_room, emit
 from flask_cors import CORS
 from datetime import datetime
@@ -13,8 +13,8 @@ from db import connect_db
 # Load environment variables
 load_dotenv()
 
-# Initialize Flask app
-app = Flask(__name__)
+# Initialize Flask app (serves built client from ./static)
+app = Flask(__name__, static_folder="static", static_url_path="/")
 
 # Configure and connect MongoDB
 connect_db()
@@ -93,6 +93,18 @@ def handle_send_chat_message(data):
 @socketio.on('disconnect')
 def handle_disconnect():
     print('A user disconnected!')
+
+
+# Serve built client
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_client(path):
+    static_dir = app.static_folder
+    # Serve static assets directly if they exist
+    if path and os.path.exists(os.path.join(static_dir, path)):
+        return send_from_directory(static_dir, path)
+    # Fallback to index.html for SPA routes
+    return send_from_directory(static_dir, 'index.html')
 
 # Run the app with SocketIO
 if __name__ == '__main__':
