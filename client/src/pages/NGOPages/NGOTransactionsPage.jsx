@@ -5,7 +5,7 @@ import CardImage from "../../assets/food-link-card-img.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { useDarkMode } from "../../context/DarkModeContext";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8800";
+import { API_URL } from "../../utils/apiConfig.js";
 
 const NGOTransactionsPage = () => {
   const { user } = useAuth();

@@ -5,7 +5,7 @@ import axios from "axios";
 import "../../App.css";
 import { useDarkMode } from "../../context/DarkModeContext";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8800";
+import { API_URL } from "../../utils/apiConfig.js";
 
 const RestaurantListingsPage = () => {
   const imageUrls = [

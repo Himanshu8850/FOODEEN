@@ -1,7 +1,11 @@
 import React, { createContext, useContext, useState } from "react";
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8800";
+// Auto-detect API URL: use same domain if on deployed server, else localhost for dev
+const API_URL = import.meta.env.VITE_API_URL || 
+  (typeof window !== 'undefined' && window.location.hostname !== 'localhost' 
+    ? window.location.origin 
+    : "http://127.0.0.1:8800");
 
 const AuthContext = createContext();
 

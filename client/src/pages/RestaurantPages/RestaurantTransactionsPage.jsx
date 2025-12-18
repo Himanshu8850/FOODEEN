@@ -13,7 +13,7 @@ import {
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8800";
+import { API_URL } from "../../utils/apiConfig.js";
 
 const RestaurantTransactionsPage = () => {
   const { user } = useAuth();

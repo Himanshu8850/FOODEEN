@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import { useAuth } from "../../../context/AuthContext";
 import { useDarkMode } from "../../../context/DarkModeContext";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8800";
+import { API_URL, SOCKET_URL } from "../../../utils/apiConfig.js";
 const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || "http://localhost:8800";
 
 const ChatRoomPage = () => {

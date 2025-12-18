@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import img from "../../assets/team-4-470x470.png";
 import { useDarkMode } from "../../context/DarkModeContext";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8800";
+import { API_URL } from "../../utils/apiConfig.js";
 
 export default function RestaurantProfilePage() {
   const [userInfo, setUserInfo] = useState(null);
