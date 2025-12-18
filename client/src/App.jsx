@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -10,29 +10,33 @@ import {
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ScrollSphereBackground from "./components/Background/ScrollSphereBackground";
+import LoadingPage from "./components/LoadingPage/LoadingPage";
+
+// Loading Context
+import { useLoading } from "./context/LoadingContext";
 
 // Dashboard
-import HomePage from "./pages/HomePage/HomePage";
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
 // Authentication Pages
-import SignUpPage from "./pages/AuthenticationPages/SignUpPage/SignUpPage";
-import SignInPage from "./pages/AuthenticationPages/SignInPage/SignInPage";
+const SignUpPage = lazy(() => import("./pages/AuthenticationPages/SignUpPage/SignUpPage"));
+const SignInPage = lazy(() => import("./pages/AuthenticationPages/SignInPage/SignInPage"));
 
 // Restaurant Pages
-import RestaurantListingsPage from "./pages/RestaurantPages/RestaurantListingsPage";
-import RestaurantTransactionsPage from "./pages/RestaurantPages/RestaurantTransactionsPage";
-import RestaurantProfilePage from "./pages/RestaurantPages/RestaurantProfilePage";
+const RestaurantListingsPage = lazy(() => import("./pages/RestaurantPages/RestaurantListingsPage"));
+const RestaurantTransactionsPage = lazy(() => import("./pages/RestaurantPages/RestaurantTransactionsPage"));
+const RestaurantProfilePage = lazy(() => import("./pages/RestaurantPages/RestaurantProfilePage"));
 
 // NGO Pages
-import NGOListingsPage from "./pages/NGOPages/NGOListingsPage";
-import NGOTransactionsPage from "./pages/NGOPages/NGOTransactionsPage";
-import NGOProfilePage from "./pages/NGOPages/NGOProfilePage";
+const NGOListingsPage = lazy(() => import("./pages/NGOPages/NGOListingsPage"));
+const NGOTransactionsPage = lazy(() => import("./pages/NGOPages/NGOTransactionsPage"));
+const NGOProfilePage = lazy(() => import("./pages/NGOPages/NGOProfilePage"));
 
 // Chat-Interface
-import ChatRoomPage from "./pages/ChatInterfacePages/ChatRoomPage/ChatRoomPage";
+const ChatRoomPage = lazy(() => import("./pages/ChatInterfacePages/ChatRoomPage/ChatRoomPage"));
 
 // Other Pages
-import AboutPage from "./pages/AboutPage/AboutPage";
+const AboutPage = lazy(() => import("./pages/AboutPage/AboutPage"));
 
 // Context
 import { DarkModeProvider } from "./context/DarkModeContext";
@@ -41,12 +45,28 @@ import { DarkModeProvider } from "./context/DarkModeContext";
 import NotFoundPage from "./pages/ErrorPages/NotFoundPage/NotFoundPage";
 import InternalServerErrorPage from "./pages/ErrorPages/InternalServerErrorPage/InternalServerErrorPage";
 
+// Suspense fallback component
+const SuspenseFallback = () => (
+  <div className="flex items-center justify-center min-h-screen bg-white dark:bg-gray-900">
+    <div className="text-center">
+      <div className="inline-flex items-center gap-2 mb-4">
+        <div className="w-3 h-3 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: "0s" }}></div>
+        <div className="w-3 h-3 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+        <div className="w-3 h-3 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: "0.4s" }}></div>
+      </div>
+      <p className="text-gray-600 dark:text-gray-400">Loading...</p>
+    </div>
+  </div>
+);
+
 const Layout = () => {
   return (
     <div className="relative z-10">
       <ScrollSphereBackground />
       <Navbar transparent />
-      <Outlet />
+      <Suspense fallback={<SuspenseFallback />}>
+        <Outlet />
+      </Suspense>
       <Footer />
     </div>
   );
@@ -69,7 +89,9 @@ const router = createBrowserRouter([
         path: "/",
         element: (
           <PrivateRoute>
-            <HomePage />
+            <Suspense fallback={<SuspenseFallback />}>
+              <HomePage />
+            </Suspense>
           </PrivateRoute>
         ),
       },
@@ -77,7 +99,9 @@ const router = createBrowserRouter([
         path: "/restaurant/listings",
         element: (
           <PrivateRoute>
-            <RestaurantListingsPage />
+            <Suspense fallback={<SuspenseFallback />}>
+              <RestaurantListingsPage />
+            </Suspense>
           </PrivateRoute>
         ),
       },
@@ -85,7 +109,9 @@ const router = createBrowserRouter([
         path: "/restaurant/transactions",
         element: (
           <PrivateRoute>
-            <RestaurantTransactionsPage />
+            <Suspense fallback={<SuspenseFallback />}>
+              <RestaurantTransactionsPage />
+            </Suspense>
           </PrivateRoute>
         ),
       },
@@ -93,7 +119,9 @@ const router = createBrowserRouter([
         path: "/restaurant/profile",
         element: (
           <PrivateRoute>
-            <RestaurantProfilePage />
+            <Suspense fallback={<SuspenseFallback />}>
+              <RestaurantProfilePage />
+            </Suspense>
           </PrivateRoute>
         ),
       },
@@ -101,7 +129,9 @@ const router = createBrowserRouter([
         path: "/ngo/listings",
         element: (
           <PrivateRoute>
-            <NGOListingsPage />
+            <Suspense fallback={<SuspenseFallback />}>
+              <NGOListingsPage />
+            </Suspense>
           </PrivateRoute>
         ),
       },
@@ -109,7 +139,9 @@ const router = createBrowserRouter([
         path: "/ngo/transactions",
         element: (
           <PrivateRoute>
-            <NGOTransactionsPage />
+            <Suspense fallback={<SuspenseFallback />}>
+              <NGOTransactionsPage />
+            </Suspense>
           </PrivateRoute>
         ),
       },
@@ -117,27 +149,45 @@ const router = createBrowserRouter([
         path: "/ngo/profile/",
         element: (
           <PrivateRoute>
-            <NGOProfilePage />
+            <Suspense fallback={<SuspenseFallback />}>
+              <NGOProfilePage />
+            </Suspense>
           </PrivateRoute>
         ),
       },
       {
         path: "/about",
-        element: <AboutPage />,
+        element: (
+          <Suspense fallback={<SuspenseFallback />}>
+            <AboutPage />
+          </Suspense>
+        ),
       },
     ],
   },
   {
     path: "/sign-up",
-    element: <SignUpPage />,
+    element: (
+      <Suspense fallback={<SuspenseFallback />}>
+        <SignUpPage />
+      </Suspense>
+    ),
   },
   {
     path: "/sign-in",
-    element: <SignInPage />,
+    element: (
+      <Suspense fallback={<SuspenseFallback />}>
+        <SignInPage />
+      </Suspense>
+    ),
   },
   {
     path: "/chat/:orderId",
-    element: <ChatRoomPage />,
+    element: (
+      <Suspense fallback={<SuspenseFallback />}>
+        <ChatRoomPage />
+      </Suspense>
+    ),
   },
   {
     path: "/error/notfound",
@@ -148,6 +198,19 @@ const router = createBrowserRouter([
     element: <InternalServerErrorPage />,
   },
 ]);
+
+export default function App() {
+  const { isLoading } = useLoading();
+
+  return (
+    <>
+      {isLoading && <LoadingPage />}
+      <DarkModeProvider>
+        <RouterProvider router={router} />
+      </DarkModeProvider>
+    </>
+  );
+}
 
 const App = () => {
   return (

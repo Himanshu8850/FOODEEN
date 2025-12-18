@@ -11,86 +11,107 @@ const AboutPage = () => {
         <img
           src="https://images.unsplash.com/photo-1553787434-45e1d245bfbb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZCUyMHdhc3RlfGVufDB8fDB8fHww"
           alt=""
+          loading="lazy"
         />
         <img
           src="https://images.unsplash.com/photo-1536703219213-0223580c76b2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZCUyMHdhc3RlfGVufDB8fDB8fHww"
           alt=""
+          loading="lazy"
         />
         <img
           src="https://images.unsplash.com/photo-1542624771497-851f77d79349?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZCUyMHdhc3RlfGVufDB8fDB8fHww"
           alt=""
+          loading="lazy"
         />
         <img
           src="https://images.unsplash.com/photo-1582408904325-adf33a0ec010?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZCUyMHdhc3RlfGVufDB8fDB8fHww"
           alt=""
+          loading="lazy"
         />
         <img
           src="https://images.unsplash.com/photo-1574676039880-73da8368f0eb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Zm9vZCUyMHdhc3RlfGVufDB8fDB8fHww"
           alt=""
+          loading="lazy"
         />
         <img
           src="https://images.unsplash.com/photo-1591198619986-ac025da6a1f3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Zm9vZCUyMHdhc3RlfGVufDB8fDB8fHww"
           alt=""
+          loading="lazy"
         />
         <img
           src="https://images.unsplash.com/photo-1516711345667-ebafb3ebea12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2QlMjB3YXN0ZXxlbnwwfHwwfHx8MA%3D%3D"
           alt=""
+          loading="lazy"
         />
         <img
           src="https://images.unsplash.com/photo-1591100063300-7b8956e7cb51?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGZvb2QlMjB3YXN0ZXxlbnwwfHwwfHx8MA%3D%3D"
           alt=""
+          loading="lazy"
         />
         <img
           src="https://plus.unsplash.com/premium_photo-1681152755702-c3c0445dab97?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZvb2QlMjB3YXN0ZXxlbnwwfHwwfHx8MA%3D%3D"
           alt=""
+          loading="lazy"
         />
         <img
           src="https://images.unsplash.com/photo-1562077981-4d7eafd44932?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZvb2QlMjB3YXN0ZXxlbnwwfHwwfHx8MA%3D%3D"
           alt=""
+          loading="lazy"
         />
         <img
           src="https://media.istockphoto.com/id/1176948944/photo/different-trash-garbage-sorting-domestic-waste-for-compost-from-fruits-and-vegetables.webp?b=1&s=170667a&w=0&k=20&c=kXCXLe0ntYG4j0Ywyi7isxD7jYGT3vqcM1C271XPTzc="
           alt=""
+          loading="lazy"
         />
         <img
           src="https://media.istockphoto.com/id/187676687/photo/fresh-food-in-garbage-can-to-illustrate-waste.webp?b=1&s=170667a&w=0&k=20&c=Q4DY77fQ9musrAhfFnp3YmJwzZoIEVTK2U5_IyJAB1Y="
           alt=""
+          loading="lazy"
         />
         <img
           src="https://images.unsplash.com/photo-1562077981-4d7eafd44932?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZvb2QlMjB3YXN0ZXxlbnwwfHwwfHx8MA%3D%3D"
           alt=""
+          loading="lazy"
         />
         <img
           src="https://media.istockphoto.com/id/1160204081/photo/making-compost-from-leftovers.webp?b=1&s=170667a&w=0&k=20&c=0f7PXET8AYw2enR1V1EOULvNwfZp0guGO9X3rquWyxc="
           alt=""
+          loading="lazy"
         />
         <img
           src="https://media.istockphoto.com/id/1208241405/photo/discarded-and-spoiled-food-on-a-rubbish-heap.webp?b=1&s=170667a&w=0&k=20&c=JF6DXdVDBxQEvEw4BxlAB0L2QOTnTrKIaoSzkuCLbX0="
           alt=""
+          loading="lazy"
         />
         <img
           src="https://media.istockphoto.com/id/845816364/photo/garbage-pile-in-trash-dump-or-landfill-pollution-concept.webp?b=1&s=170667a&w=0&k=20&c=wqU9FgdPnUkM6ryxquGGOla1Dodr_3uWpwM43qI1uBI="
           alt=""
+          loading="lazy"
         />
         <img
           src="https://media.istockphoto.com/id/1425232352/photo/expired-organic-bio-waste-mix-vegetables-and-fruits-in-a-huge-container-in-a-rubbish-bin-heap.webp?b=1&s=170667a&w=0&k=20&c=fRuzkcDmauB_tn_icIL_CyGAuS1fjNPMf_M2MB31FMo="
           alt=""
+          loading="lazy"
         />
         <img
           src="https://media.istockphoto.com/id/136258139/photo/trash.webp?b=1&s=170667a&w=0&k=20&c=iHaHPAHu35ESKw-V0YVk7SZEm7bCqneZhk4yQa1OE4I="
           alt=""
+          loading="lazy"
         />
         <img
           src="https://media.istockphoto.com/id/660153840/photo/man-throwing-leftovers-to-the-trash-bin.jpg?s=612x612&w=0&k=20&c=1Fnyj2tNzmppYzHRUFR8FTLEuS6k8mwDll9o2e7DjTo="
           alt=""
+          loading="lazy"
         />
         <img
           src="https://media.istockphoto.com/id/1160204521/photo/making-compost-from-leftovers.jpg?s=612x612&w=0&k=20&c=a-uEvWJgk6uCl9Q63tUaHpT8DfFVJpt4evhjh6A3-2A="
           alt=""
+          loading="lazy"
         />
         <img
           src="https://media.istockphoto.com/id/1151382168/photo/food-waste-problem-leftovers-thrown-into-into-the-trash-can-spoiled-food-in-refuse-bin.jpg?s=612x612&w=0&k=20&c=WhC30UBE1smU5U6Qj_Mfzmbp3tHItUclOYTy0wyHDNg="
           alt=""
+          loading="lazy"
         />
       </div>
       <div className="font-alveria flex-1 flex flex-col justify-start text-center items-center gap-6 border-[3px] border-r-teal-400 border-b-teal-400 border-t-white border-l-white px-5 py-5">

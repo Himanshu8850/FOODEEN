@@ -187,6 +187,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
+                    loading="lazy"
                     className="w-full align-middle rounded-t-lg"
                   />
                   <blockquote className="relative p-8 mb-4 bg-pink-600">
@@ -246,6 +247,7 @@ export default function Landing() {
               <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
                 <img
                   alt="..."
+                  loading="lazy"
                   className="max-w-full rounded-lg shadow-lg"
                   src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=1200&q=80"
                 />
