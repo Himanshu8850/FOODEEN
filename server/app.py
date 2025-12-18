@@ -25,22 +25,11 @@ FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:5173')
 # Allow both localhost ports (5173 and 5174) for development, plus production domain
 CORS_ORIGINS = [FRONTEND_URL, 'http://localhost:5173', 'http://localhost:5174', 'http://127.0.0.1:5173', 'http://127.0.0.1:5174']
 
-# In production, when frontend is served from same origin, use '*' for SocketIO
-# Check if running in production (FRONTEND_URL contains https)
-if FRONTEND_URL.startswith('https://'):
-    # Production: allow the specific domain
-    socketio = SocketIO(app, cors_allowed_origins='*', async_mode='eventlet')
-else:
-    # Development: restrict to specific origins
-    socketio = SocketIO(app, cors_allowed_origins=CORS_ORIGINS, async_mode='eventlet')
+# SocketIO CORS: always allow all origins so Render reverse proxy + HTTPS work reliably
+socketio = SocketIO(app, cors_allowed_origins='*', async_mode='eventlet')
 
-# Enable CORS
-if FRONTEND_URL.startswith('https://'):
-    # Production: allow all origins since frontend is served from same domain
-    CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
-else:
-    # Development: restrict to specific origins
-    CORS(app, resources={r"/*": {"origins": CORS_ORIGINS}}, supports_credentials=True)
+# Enable CORS (reflect request origin when credentials are used)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
 # Custom JSON Encoder
 class MongoJSONEncoder(json.JSONEncoder):
