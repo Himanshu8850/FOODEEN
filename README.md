@@ -80,31 +80,6 @@ DB_NAME=foody
 OPENROUTE_API_KEY=your_openroute_api_key
 ```
 
-## Project Structure
-
-```
-foody/
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── components/    # Reusable components (Navbar, Footer)
-│   │   ├── context/       # React contexts (Auth, DarkMode)
-│   │   ├── pages/         # Page components
-│   │   │   ├── HomePage/
-│   │   │   ├── AuthenticationPages/
-│   │   │   ├── NGOPages/
-│   │   │   ├── RestaurantPages/
-│   │   │   └── ChatInterfacePages/
-│   │   └── assets/        # Images and static files
-│   └── package.json
-│
-└── server/                # Flask backend
-    ├── controllers/       # Business logic
-    ├── models/           # Database models
-    ├── routes/           # API routes
-    ├── utils/            # Helper functions and ML models
-    └── requirements.txt
-```
-
 ## Usage
 
 ### For Restaurants
@@ -144,38 +119,6 @@ foody/
 - Password hashing for user authentication
 - Input validation and sanitization
 - CORS protection
-
-## API Endpoints
-
-### Authentication
-- `POST /register` - User registration
-- `POST /login` - User login
-
-### Listings
-- `GET /listings/restaurant?restaurant_id=<id>` - Get restaurant listings
-- `POST /listings` - Create new listing
-- `PUT /listings/<id>` - Update listing
-- `DELETE /listings/<id>` - Delete listing
-
-### Orders
-- `POST /orders` - Create order request
-- `GET /orders/restaurant?restaurant_id=<id>` - Get restaurant orders
-- `GET /orders/ngo?ngo_id=<id>` - Get NGO orders
-- `PUT /orders/<id>/accept` - Accept order
-- `PUT /orders/<id>/decline` - Decline order
-- `PUT /orders/<id>/cancel` - Cancel order
-- `PUT /orders/<id>/fulfill` - Fulfill order
-
-### Recommendations
-- `POST /matrix-factorization` - Get collaborative filtering recommendations
-- `POST /content-filter` - Get content-based recommendations
-
-### Routes
-- `POST /route` - Calculate route between locations
-
-### Reviews
-- `POST /addRestReview/<order_id>` - Restaurant adds review
-- `POST /addNgoReview/<order_id>` - NGO adds review
 
 ## Contributing
 
