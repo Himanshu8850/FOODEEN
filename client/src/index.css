@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-amber-50 via-rose-50 to-sky-50 text-slate-800 antialiased;
+  }
+
+  ::selection {
+    @apply bg-amber-300/70 text-slate-900;
+  }
+}
+
+@layer components {
+  .pill-accent {
+    @apply bg-gradient-to-r from-amber-500 to-pink-500 text-white font-semibold rounded-full px-4 py-2 shadow-lg transition duration-200 hover:from-amber-600 hover:to-pink-600;
+  }
+
+  .card-glow {
+    @apply bg-white/90 backdrop-blur border border-white/60 shadow-xl rounded-2xl;
+  }
+}

@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build files
+dist/
+build/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache
+cache/
+*.cache
+.cache/
+
+# Logs
+*.log
+server.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Model files (large)
+*.joblib
+
+# Misc
+.pytest_cache/
+.coverage
+htmlcov/
