@@ -50,7 +50,7 @@ const SignInPage = () => {
 
   return (
     <div
-      className={`min-h-screen flex items-center px-3 ${isDarkMode ? "shadow bg-gradient-to-r from-gray-700/70 to-gray-900/70" : "bg-white/60 shadow-xl"}`}
+      className={`min-h-screen flex items-center justify-center px-3 py-8 ${isDarkMode ? "shadow bg-gradient-to-r from-gray-700/70 to-gray-900/70" : "bg-white/60 shadow-xl"}`}
     >
       {error && (
         <ErrorModal
@@ -59,44 +59,39 @@ const SignInPage = () => {
           onClose={handleCloseModal}
         />
       )}
-      <div className="container mx-auto px-2 py-4 sm:px-0">
+      <div className="container mx-auto px-2">
         <div
-          className={`flex flex-col sm:flex-row w-full sm:w-10/12 lg:w-8/12 py-12 px-2 md:py-0 md:px-0 ${isDarkMode ? "bg-gray-900/70 text-white" : "bg-white/70 text-gray-900"} rounded-xl mx-auto shadow-lg overflow-hidden`}
+          className={`flex flex-col lg:flex-row w-full max-w-5xl ${isDarkMode ? "bg-gray-900/70 text-white" : "bg-white/70 text-gray-900"} rounded-xl mx-auto shadow-lg overflow-hidden`}
         >
           <div
-            className="w-full hidden lg:w-1/2 lg:flex flex-col items-center justify-center gap-4 p-2 sm:p-12 bg-no-repeat bg-cover bg-center"
+            className="w-full hidden lg:w-1/2 lg:flex flex-col items-center justify-center gap-4 p-8 bg-no-repeat bg-cover bg-center"
             style={{ backgroundImage: `url(${registerimage})` }}
           >
             <div className="bg-white/60 rounded-xl p-6">
-              <h1 className="text-gray-900 text-4xl mb-3 font-mono">
+              <h1 className="text-gray-900 text-3xl mb-3 font-mono">
                 Welcome back to FOODEEN
               </h1>
-              {/* <div> */}
-              <p className="text-gray-900 tracking-wide">
+              <p className="text-gray-900 tracking-wide text-sm">
                 Welcome back to FoodLink! Connect, donate, and make a
                 difference. Whether you're a restaurant or an NGO, our platform
                 streamlines your efforts to combat hunger. Together, let's
                 create a world where no one goes hungry.
               </p>
-              {/* </div> */}
-              <p className="text-gray-900 mt-10">
+              <p className="text-gray-900 mt-8 text-sm">
                 Sign up if you don't have an account
               </p>
               <Link
                 to="/sign-up"
-                className="w-1/2 rounded-md bg-purple-500 py-3 hover:bg-blue-700 disabled:cursor-not-allowed text-center text-white transition duration-200 ease-in-out hover:scale-105"
+                className="inline-block w-full rounded-md bg-purple-500 py-3 hover:bg-blue-700 disabled:cursor-not-allowed text-center text-white transition duration-200 ease-in-out hover:scale-105 mt-4"
               >
-                <button
-                  // disabled={passwordMatch || !formData.username || !formData.email || !formData.password || !formData.confirmPassword || !formData.verificationCode || !formData.locationName ? true : false}
-                  className=""
-                >
+                <button className="">
                   Sign Up
                 </button>
               </Link>
             </div>
           </div>
           <div
-            className={`w-full lg:w-1/2 py-2 sm:py-16 px-2 sm:px-12 font-serif ${isDarkMode ? "bg-gray-900/70 text-white" : "bg-white/70 text-gray-900"} rounded-xl`}
+            className={`w-full lg:w-1/2 py-12 px-6 sm:px-12 font-serif ${isDarkMode ? "bg-gray-900/70 text-white" : "bg-white/70 text-gray-900"} rounded-xl flex flex-col justify-center`}
           >
             <h2 className="text-3xl mb-4 font-semibold lg:mt-20 xl:mt-12">
               Sign-In
