@@ -60,4 +60,3 @@ This template uses Vite with HMR and ESLint. Two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 **Made with ❤️ by Himanshu**
-

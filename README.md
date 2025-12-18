@@ -2,7 +2,7 @@
 
 **Author:** Himanshu  
 **Version:** 1.0.0  
-**License:** MIT  
+**License:** MIT
 
 ## Overview
 
@@ -11,6 +11,7 @@ FOODEEN is a web application that reduces food waste by facilitating the donatio
 ## Features
 
 ### Core Functionality
+
 - **User Authentication**: Separate registration and login for Restaurants and NGOs
 - **Food Listings Management**: Restaurants can create, update, and manage surplus food listings
 - **Smart Recommendations**: ML-powered recommendations for NGOs based on food preferences
@@ -23,6 +24,7 @@ FOODEEN is a web application that reduces food waste by facilitating the donatio
 ### Technology Stack
 
 #### Frontend
+
 - React 18.2 + Vite
 - Tailwind CSS for styling
 - Three.js for 3D animated backgrounds
@@ -31,6 +33,7 @@ FOODEEN is a web application that reduces food waste by facilitating the donatio
 - Axios for API requests
 
 #### Backend
+
 - Flask (Python) with Flask-SocketIO
 - MongoDB with MongoEngine ODM
 - Machine Learning:
@@ -42,12 +45,14 @@ FOODEEN is a web application that reduces food waste by facilitating the donatio
 ## Installation
 
 ### Prerequisites
+
 - Node.js (v16 or higher)
 - Python 3.8+
 - MongoDB
 - npm or yarn
 
 ### Client Setup
+
 ```bash
 cd client
 npm install
@@ -55,6 +60,7 @@ npm run dev
 ```
 
 ### Server Setup
+
 ```bash
 cd server
 python -m venv venv
@@ -68,12 +74,14 @@ python app.py
 Create `.env` files in both client and server directories:
 
 **Client `.env`:**
+
 ```
 VITE_API_URL=http://127.0.0.1:8800
 VITE_SOCKET_URL=http://127.0.0.1:8800
 ```
 
 **Server `.env`:**
+
 ```
 MONGO_URI=your_mongodb_connection_string
 DB_NAME=foody
@@ -108,6 +116,7 @@ foody/
 ## Usage
 
 ### For Restaurants
+
 1. Register as a Restaurant
 2. Add surplus food listings with details (name, quantity, expiry, food type)
 3. Manage incoming donation requests from NGOs
@@ -117,6 +126,7 @@ foody/
 7. Leave reviews for NGOs
 
 ### For NGOs
+
 1. Register as an NGO/Charity
 2. Browse available food listings
 3. View ML-powered recommendations based on preferences
@@ -128,11 +138,13 @@ foody/
 ## Key Features Explained
 
 ### Machine Learning Recommendations
+
 - **Collaborative Filtering**: Uses matrix factorization to recommend items based on similar NGO preferences
 - **Content-Based Filtering**: Recommends food based on NGO's historical food type preferences (Vegetarian, Vegan, Non-Vegetarian)
 - **Sentiment Analysis**: Analyzes reviews to provide insights on restaurant and NGO reliability
 
 ### Order Lifecycle
+
 1. **Requested**: NGO submits a request for food items
 2. **Accepted**: Restaurant accepts the request and generates verification codes
 3. **Fulfilled**: Both parties confirm with verification codes
@@ -140,6 +152,7 @@ foody/
 5. **Dismissed**: Auto-dismissed if not processed
 
 ### Security Features
+
 - Verification codes for order fulfillment and cancellation
 - Password hashing for user authentication
 - Input validation and sanitization
@@ -148,16 +161,19 @@ foody/
 ## API Endpoints
 
 ### Authentication
+
 - `POST /register` - User registration
 - `POST /login` - User login
 
 ### Listings
+
 - `GET /listings/restaurant?restaurant_id=<id>` - Get restaurant listings
 - `POST /listings` - Create new listing
 - `PUT /listings/<id>` - Update listing
 - `DELETE /listings/<id>` - Delete listing
 
 ### Orders
+
 - `POST /orders` - Create order request
 - `GET /orders/restaurant?restaurant_id=<id>` - Get restaurant orders
 - `GET /orders/ngo?ngo_id=<id>` - Get NGO orders
@@ -167,13 +183,16 @@ foody/
 - `PUT /orders/<id>/fulfill` - Fulfill order
 
 ### Recommendations
+
 - `POST /matrix-factorization` - Get collaborative filtering recommendations
 - `POST /content-filter` - Get content-based recommendations
 
 ### Routes
+
 - `POST /route` - Calculate route between locations
 
 ### Reviews
+
 - `POST /addRestReview/<order_id>` - Restaurant adds review
 - `POST /addNgoReview/<order_id>` - NGO adds review
 

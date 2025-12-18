@@ -13,7 +13,8 @@ def connect_db(app=None):
         disconnect()
         
         mongo_uri = os.getenv("MONGO_URI")
-        db_name = os.getenv("MONGODB_DB_NAME", "FOODUSE")
+        # Support both MONGODB_DB_NAME and DB_NAME, default to FOODUSE
+        db_name = os.getenv("MONGODB_DB_NAME") or os.getenv("DB_NAME") or "FOODUSE"
         
         # Debug: Print loaded environment variables
         print(f"✓ MONGO_URI loaded: {mongo_uri[:50]}..." if mongo_uri else "✗ MONGO_URI not loaded")
