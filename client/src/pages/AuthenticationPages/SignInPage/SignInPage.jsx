@@ -48,6 +48,20 @@ const SignInPage = () => {
     setShowModal(false);
   };
 
+  const fillTestCredentials = (type) => {
+    if (type === "ngo") {
+      setFormData({
+        email: "ngo@gmail.com",
+        password: "ngo123",
+      });
+    } else if (type === "restaurant") {
+      setFormData({
+        email: "rest@gmail.com",
+        password: "rest123",
+      });
+    }
+  };
+
   return (
     <div
       className={`min-h-screen flex items-center justify-center px-3 py-8 ${isDarkMode ? "shadow bg-gradient-to-r from-gray-700/70 to-gray-900/70" : "bg-white/60 shadow-xl"}`}
@@ -84,9 +98,7 @@ const SignInPage = () => {
                 to="/sign-up"
                 className="inline-block w-full rounded-md bg-purple-500 py-3 hover:bg-blue-700 disabled:cursor-not-allowed text-center text-white transition duration-200 ease-in-out hover:scale-105 mt-4"
               >
-                <button className="">
-                  Sign Up
-                </button>
+                <button className="">Sign Up</button>
               </Link>
             </div>
           </div>
@@ -168,12 +180,36 @@ const SignInPage = () => {
               <div className="mt-5">
                 <button
                   type="submit"
-                  className="w-full bg-purple-500 py-3 hover:bg-blue-700 disabled:cursor-not-allowed text-center text-white transition duration-200 ease-in-out hover:scale-105"
+                  className="w-full bg-purple-500 py-3 hover:bg-blue-700 disabled:cursor-not-allowed text-center text-white transition duration-200 ease-in-out hover:scale-105 rounded-md"
                 >
                   Sign In
                 </button>
               </div>
             </form>
+
+            {/* Demo Credentials Section */}
+            <div className="mt-6 pt-4 border-t border-gray-400">
+              <p className="text-sm mb-3 text-center opacity-75">
+                Demo Login (For Testing)
+              </p>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => fillTestCredentials("ngo")}
+                  className="flex-1 bg-green-600 text-white py-2 px-3 rounded-md hover:bg-green-700 transition duration-200 text-sm"
+                >
+                  NGO Demo
+                </button>
+                <button
+                  type="button"
+                  onClick={() => fillTestCredentials("restaurant")}
+                  className="flex-1 bg-orange-600 text-white py-2 px-3 rounded-md hover:bg-orange-700 transition duration-200 text-sm"
+                >
+                  Restaurant Demo
+                </button>
+              </div>
+            </div>
+
             <div className="mt-5">
               <p>
                 Do not have an account?{" "}
