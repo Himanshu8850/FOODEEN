@@ -6,7 +6,6 @@ import { useAuth } from "../../../context/AuthContext";
 import { useDarkMode } from "../../../context/DarkModeContext";
 
 import { API_URL, SOCKET_URL } from "../../../utils/apiConfig.js";
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || "http://localhost:8800";
 
 const ChatRoomPage = () => {
   const { user } = useAuth();
