@@ -25,5 +25,5 @@ COPY --from=frontend /client/dist /app/server/static
 WORKDIR /app/server
 ENV PORT=8800
 EXPOSE 8800
-# Use eventlet for Socket.IO compatibility
-CMD ["gunicorn", "-k", "eventlet", "-w", "1", "-b", "0.0.0.0:8800", "app:app"]
+# Use eventlet for Socket.IO compatibility; bind to $PORT for platforms like Render/Railway
+CMD gunicorn -k eventlet -w 1 -b 0.0.0.0:${PORT:-8800} app:app
