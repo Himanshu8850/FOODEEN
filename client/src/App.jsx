@@ -211,15 +211,3 @@ export default function App() {
     </>
   );
 }
-
-const App = () => {
-  return (
-    <DarkModeProvider>
-      <div className="min-h-screen bg-gradient-to-br from-amber-50/60 via-rose-50/60 to-sky-50/60">
-        <RouterProvider router={router} />
-      </div>
-    </DarkModeProvider>
-  );
-};
-
-export default App;
