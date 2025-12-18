@@ -153,50 +153,45 @@ const SignUp = () => {
 
   return (
     <div
-      className={`min-h-screen font-serif text-sm md:text-lg flex justify-center items-center px-4 py-7 ${isDarkMode ? "shadow bg-gradient-to-r from-gray-700/70 to-gray-900/70" : "bg-white/60 shadow-xl"}`}
+      className={`min-h-screen font-serif text-sm md:text-base flex justify-center items-center px-4 py-8 ${isDarkMode ? "shadow bg-gradient-to-r from-gray-700/70 to-gray-900/70" : "bg-white/60 shadow-xl"}`}
     >
-      <div className="container mx-auto">
-        <div className="flex flex-col sm:flex-row w-full sm:w-10/12 lg:w-8/1 bg-gray-300/70 rounded-xl mx-auto shadow-lg overflow-hidden">
+      <div className="container mx-auto max-w-5xl">
+        <div className="flex flex-col lg:flex-row w-full bg-gray-300/70 rounded-xl shadow-lg overflow-hidden">
           <div
-            className="w-full hidden lg:w-1/2 lg:flex flex-col items-center justify-center gap-4 p-2 sm:p-12 bg-no-repeat bg-cover bg-center"
+            className="w-full hidden lg:w-1/2 lg:flex flex-col items-center justify-center gap-4 p-8 bg-no-repeat bg-cover bg-center"
             style={{ backgroundImage: `url(${registerimage})` }}
           >
             <div className="bg-white/60 rounded-xl p-6">
-              <h1 className="text-gray-900 text-4xl mb-3 font-mono">
+              <h1 className="text-gray-900 text-3xl mb-3 font-mono">
                 Welcome to FOODEEN
               </h1>
-              {/* <div> */}
-              <p className="text-gray-900 tracking-wide">
+              <p className="text-gray-900 tracking-wide text-sm">
                 Sign up now and join the movement with FoodLink! Whether you're
                 a restaurant looking to donate surplus food or an NGO seeking
                 support, our platform empowers you to make a meaningful impact.
                 Together, let's build a hunger-free world, one meal at a time.
               </p>
-              {/* </div> */}
-              <p className="text-gray-900 mt-10">
+              <p className="text-gray-900 mt-8 text-sm">
                 Sign in if you already have an account
               </p>
               <Link
                 to="/sign-in"
-                className="w-1/2 rounded-md bg-purple-500 py-3 hover:bg-blue-700 disabled:cursor-not-allowed text-center text-white transition duration-200 ease-in-out hover:scale-105"
+                className="inline-block w-full rounded-md bg-purple-500 py-3 hover:bg-blue-700 disabled:cursor-not-allowed text-center text-white transition duration-200 ease-in-out hover:scale-105 mt-4"
               >
-                <button
-                  // disabled={passwordMatch || !formData.username || !formData.email || !formData.password || !formData.confirmPassword || !formData.verificationCode || !formData.locationName ? true : false}
-                  className=""
-                >
+                <button className="">
                   Sign In
                 </button>
               </Link>
             </div>
           </div>
           <div
-            className={`w-full lg:w-1/2 py-2 sm:py-16  px-2 sm:px-12 ${isDarkMode ? "bg-gray-900/70 text-white" : "bg-white/70 text-gray-900"} rounded-xl`}
+            className={`w-full lg:w-1/2 py-12 px-6 sm:px-12 ${isDarkMode ? "bg-gray-900/70 text-white" : "bg-white/70 text-gray-900"} rounded-xl flex flex-col justify-start overflow-y-auto max-h-screen`}
           >
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Register</h2>
-            <p className="mb-4">
-              Create your account. It’s free and only takes a minute.
+            <p className="mb-4 text-sm">
+              Create your account. It's free and only takes a minute.
             </p>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="mt-5">
                 <input
                   type="text"
