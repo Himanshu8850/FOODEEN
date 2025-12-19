@@ -19,27 +19,42 @@ import { useLoading } from "./context/LoadingContext";
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
 // Authentication Pages
-const SignUpPage = lazy(() => import("./pages/AuthenticationPages/SignUpPage/SignUpPage"));
-const SignInPage = lazy(() => import("./pages/AuthenticationPages/SignInPage/SignInPage"));
+const SignUpPage = lazy(
+  () => import("./pages/AuthenticationPages/SignUpPage/SignUpPage")
+);
+const SignInPage = lazy(
+  () => import("./pages/AuthenticationPages/SignInPage/SignInPage")
+);
 
 // Restaurant Pages
-const RestaurantListingsPage = lazy(() => import("./pages/RestaurantPages/RestaurantListingsPage"));
-const RestaurantTransactionsPage = lazy(() => import("./pages/RestaurantPages/RestaurantTransactionsPage"));
-const RestaurantProfilePage = lazy(() => import("./pages/RestaurantPages/RestaurantProfilePage"));
+const RestaurantListingsPage = lazy(
+  () => import("./pages/RestaurantPages/RestaurantListingsPage")
+);
+const RestaurantTransactionsPage = lazy(
+  () => import("./pages/RestaurantPages/RestaurantTransactionsPage")
+);
+const RestaurantProfilePage = lazy(
+  () => import("./pages/RestaurantPages/RestaurantProfilePage")
+);
 
 // NGO Pages
 const NGOListingsPage = lazy(() => import("./pages/NGOPages/NGOListingsPage"));
-const NGOTransactionsPage = lazy(() => import("./pages/NGOPages/NGOTransactionsPage"));
+const NGOTransactionsPage = lazy(
+  () => import("./pages/NGOPages/NGOTransactionsPage")
+);
 const NGOProfilePage = lazy(() => import("./pages/NGOPages/NGOProfilePage"));
 
 // Chat-Interface
-const ChatRoomPage = lazy(() => import("./pages/ChatInterfacePages/ChatRoomPage/ChatRoomPage"));
+const ChatRoomPage = lazy(
+  () => import("./pages/ChatInterfacePages/ChatRoomPage/ChatRoomPage")
+);
 
 // Other Pages
 const AboutPage = lazy(() => import("./pages/AboutPage/AboutPage"));
 
 // Context
 import { DarkModeProvider } from "./context/DarkModeContext";
+import { useAuth } from "./context/AuthContext.jsx";
 
 // Error Pages
 import NotFoundPage from "./pages/ErrorPages/NotFoundPage/NotFoundPage";
@@ -50,9 +65,18 @@ const SuspenseFallback = () => (
   <div className="flex items-center justify-center min-h-screen bg-white dark:bg-gray-900">
     <div className="text-center">
       <div className="inline-flex items-center gap-2 mb-4">
-        <div className="w-3 h-3 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: "0s" }}></div>
-        <div className="w-3 h-3 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: "0.2s" }}></div>
-        <div className="w-3 h-3 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: "0.4s" }}></div>
+        <div
+          className="w-3 h-3 rounded-full bg-blue-600 animate-bounce"
+          style={{ animationDelay: "0s" }}
+        ></div>
+        <div
+          className="w-3 h-3 rounded-full bg-blue-600 animate-bounce"
+          style={{ animationDelay: "0.2s" }}
+        ></div>
+        <div
+          className="w-3 h-3 rounded-full bg-blue-600 animate-bounce"
+          style={{ animationDelay: "0.4s" }}
+        ></div>
       </div>
       <p className="text-gray-600 dark:text-gray-400">Loading...</p>
     </div>
@@ -73,7 +97,14 @@ const Layout = () => {
 };
 
 const PrivateRoute = ({ children }) => {
-  if (!localStorage.getItem("user")) {
+  const { user } = useAuth();
+  const { isLoading } = useLoading();
+
+  if (isLoading) {
+    return <SuspenseFallback />;
+  }
+
+  if (!user) {
     return <Navigate to="/sign-in" />;
   }
 
